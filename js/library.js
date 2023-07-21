@@ -45,3 +45,15 @@ export function isJson(someJson) {
     return false;
   }
 }
+
+export function addNumberOfChildren() {
+  let lis = document.querySelectorAll("li");
+
+  for (let li of lis) {
+    let titleOfElement = li.firstChild.data.replace(/\s/g, "");
+    let counterOfElementChild = li.querySelectorAll("li").length;
+    if (li.firstElementChild) {
+      li.firstChild.data = `${titleOfElement} [${counterOfElementChild}]`;
+    }
+  }
+}
