@@ -1,5 +1,4 @@
 export function clearAllElementsIn(elem) {
-  /* ваш код */
   while (elem.firstChild) {
     elem.firstChild.remove();
   }
@@ -17,4 +16,19 @@ export function listCreatorFromPromptAsk() {
     ul.append(li);
   }
   document.body.append(ul);
+}
+
+export function createTreeFromObject(container, obj) {
+  if (isJson(obj)) {
+    obj = JSON.parse(obj);
+  }
+}
+
+export function isJson(someJson) {
+  try {
+    let obj = JSON.parse(someJson);
+    return true;
+  } catch {
+    return false;
+  }
 }
