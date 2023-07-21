@@ -21,9 +21,7 @@ let data = {
   },
 };
 
-/*
 let json = JSON.stringify(data);
 
 let container = document.querySelector(".container");
 createTreeFromObject(container, json);
-*/

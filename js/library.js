@@ -22,6 +22,19 @@ export function createTreeFromObject(container, obj) {
   if (isJson(obj)) {
     obj = JSON.parse(obj);
   }
+
+  for (let [key, value] of Object.entries(obj)) {
+    let li = document.createElement("li");
+    li.textContent = key;
+    if (Object.keys(value)[0]) {
+      createTreeFromObject(li, value);
+    }
+    {
+      let ul = document.createElement("ul");
+      ul.append(li);
+      container.append(ul);
+    }
+  }
 }
 
 export function isJson(someJson) {
