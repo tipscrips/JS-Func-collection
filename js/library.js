@@ -57,3 +57,18 @@ export function addNumberOfChildren() {
     }
   }
 }
+
+export function sortTableByCell(table, cell = 1) {
+  let n = cell - 1;
+  let sortedRows = Array.from(table.rows)
+    .slice(1)
+    .sort((rowA, rowB) => {
+      if (!Number.isNaN(+rowA.cells[n].innerHTML)) {
+        return rowA.cells[n].innerHTML - rowB.cells[n].innerHTML;
+      } else {
+        return rowA.cells[n].innerHTML > rowB.cells[n].innerHTML ? 1 : -1;
+      }
+    });
+
+  table.tBodies[0].append(...sortedRows);
+}
